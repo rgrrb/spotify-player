@@ -181,5 +181,17 @@ footer {
     height: 20dvh;
     width: 100dvw;
     background-color: #000000;
+    color: white;
 
+}
+footer .player .progressBar {
+    width: 660px;
+    height: 5px;
+    background-color: #d9d9d92f;
+}
+footer .player .count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
