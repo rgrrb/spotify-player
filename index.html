@@ -5,25 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="./src/functions/msFormatter.js"></script>
+    <script src="./src/functions/loginAuthorization.js"></script>
+    <script src="./src/functions/colorPicker.js"></script>
+    <script src="./src/functions/contentLoader.js"></script>
+    <script src="./src/functions/spotifyPlayer.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="./index.js" defer></script>
     <title>Senafy</title>
 </head>
 
 <body>
-    <main>
-        <div class="aside">
-            <div class="search-bar">
-                <input type="text" placeholder="Procure por artista ou música" coloor="white">
-                <img src="./src/img/searchIcon.svg" alt="">
+    <main id="main">
+        <div class="aside" id="aside">
+            <div class="search-bar" id="search-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Procure por artista ou música"color="white" id="query-content">
+                    <img src="./src/img/searchIcon.svg" alt="" id="" onclick="createTracksSearched()">
+                </div>
+                <div class="songs-found-list" id="songs-found-list">
+                    <div class="song-found">
+                        
+                    </div>
+                </div>
             </div>
             <div class="history">
                 <h2>Volte a ouvir</h2>
             </div>
         </div>
-        <div class="container-content">
-            <div class="alert">
+        <div class="container-content" id="container-content">
+            <div class="alert" id="alert">
                 <span>Entre com a sua conta e tenha acesso à sua área pessoal e a todos os recursos exclusivos do sistema</span>
                 <p>No momento, você só pode visualizar o conteúdo. Para começar a usar as ferramentas, faça login</p>
-                <button>
+                <button id="login">
                     <span>LOGIN</span>
                     <img src="./src/img/spotifylogo.svg" alt="">
                 </button>
