@@ -1,5 +1,5 @@
 const CLIENT_ID = 'c5784e0289794de89e5763a3f5d59243'; 
-const REDIRECT_URI = "http://127.0.0.1:5500/index.html";
+const REDIRECT_URI = "https://rgrrb.github.io/spotify-player/";
 const SCOPES = [
   "user-read-private", 
   "user-read-email",

@@ -1,15 +1,14 @@
-let senafyDeviceId = null;
+let deviceId = null;
 let spotifyPlayer = null;
 let progressInterval = null; 
 
-window.onSpotifyWebPlaybackSDKReady = () => {
-    console.log("Spotify Web Playback SDK está pronto.");
-};
+window.onSpotifyWebPlaybackSDKReady();
+    
 
 function initializeSpotifyPlayer(userAccessToken) {
 
     spotifyPlayer = new Spotify.Player({
-        name: 'Senafy Player',
+        name: 'Web Player',
         getOAuthToken: cb => { cb(userAccessToken); },
         volume: 0.5
     });
@@ -97,8 +96,7 @@ function initializeSpotifyPlayer(userAccessToken) {
     });
 
     spotifyPlayer.addListener('ready', ({ device_id }) => {
-        console.log('Player conectado. Device ID:', device_id);
-        senafyDeviceId = device_id;
+        deviceId = device_id;
     });
     spotifyPlayer.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID ficou offline', device_id);
@@ -118,12 +116,12 @@ function initializeSpotifyPlayer(userAccessToken) {
 }
 
 async function playTrack(trackUri, userAccessToken) {
-    if (!senafyDeviceId) {
+    if (!deviceId) {
         alert("O player ainda não está pronto. voce deve se conectar antes de tentar escutar alguma musica");
         return;
     }
 
-    await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${senafyDeviceId}`, {
+    await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
         method: 'PUT',
         body: JSON.stringify({
             uris: [trackUri]
